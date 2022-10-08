@@ -1,0 +1,23 @@
+from random import randint
+
+
+def prov(random_num):
+
+    number = int(input("Введите число: "))
+    if (number == random_num):
+        print("Вы выиграли!!!")
+        return True
+    elif (number > random_num):
+        print("Число меньше введённого")
+        return False
+    elif (number < random_num):
+        print("Число больше введённого")
+        return False
+
+
+random_number = randint(0, 100)
+for _ in range(10):
+    if (prov(random_number)):
+        break
+
+print("Ответ. Число: ", random_number)
