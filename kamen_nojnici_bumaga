@@ -5,10 +5,10 @@ win_comp = 0
 win_hum = 0
 while True:
     human = input("Камень, ножницы, бумага?\t Или напишите стоп для остановки\n").lower()
-    if (human not in actions):
-        print("Такого варианта нет")
-    elif (human == "стоп"):
+    if (human == "стоп"):
         break
+    elif (human not in actions):
+        print("Такого варианта нет")
     else:
         computer_choice = choice(actions)
         print("Компьютер выбрал", computer_choice)
