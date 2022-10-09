@@ -7,7 +7,7 @@ while True:
     human = input("Камень, ножницы, бумага?\t Или напишите стоп для остановки\n").lower()
     if (human not in actions):
         print("Такого варианта нет")
-    elif (human == "Стоп"):
+    elif (human == "стоп"):
         break
     else:
         computer_choice = choice(actions)
