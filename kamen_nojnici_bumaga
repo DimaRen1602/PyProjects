@@ -1,39 +1,51 @@
 from random import choice
 
 actions = ["камень", "ножницы", "бумага"]
-
+win_comp = 0
+win_hum = 0
 while True:
-    human = input("Камень, ножницы, бумага?\n").lower()
+    human = input("Камень, ножницы, бумага?\t Или напишите стоп для остановки\n").lower()
     if (human not in actions):
         print("Такого варианта нет")
+    elif (human == "Стоп"):
+        break
     else:
         computer_choice = choice(actions)
         print("Компьютер выбрал", computer_choice)
-
+        print("\tРезультат: ", end="")
         if (human == "камень"):
             if (computer_choice == "камень"):
                 print("Ничья")
+                win_hum += 0.5
+                win_comp += 0.5
             elif (computer_choice == "ножницы"):
                 print("Вы победили")
+                win_hum += 1
             elif (computer_choice == "бумага"):
                 print("Победил компьютер")
+                win_comp += 1
 
         elif (human == "ножницы"):
             if (computer_choice == "камень"):
                 print("Победил компьютер")
+                win_comp += 1
             elif (computer_choice == "ножницы"):
                 print("Ничья")
+                win_hum += 0.5
+                win_comp += 0.5
             elif (computer_choice == "бумага"):
                 print("Вы победили")
+                win_hum += 1
 
         elif (human == "бумага"):
             if (computer_choice == "камень"):
                 print("Вы победили")
+                win_hum += 1
             elif (computer_choice == "ножницы"):
                 print("Победил компьютер")
+                win_comp += 1
             elif (computer_choice == "бумага"):
                 print("Ничья")
-
-    play_again = input("Сыграем еще? (д/н): ")
-    if play_again.lower() != "д":
-        break
+                win_hum += 0.5
+                win_comp += 0.5
+    print("\t\tОбщий счёт : \n\t\tПобед компьютера :", win_comp, "\n\t\tВаших побед :", win_hum)
